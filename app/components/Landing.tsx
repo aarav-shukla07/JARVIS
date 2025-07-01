@@ -51,9 +51,12 @@ export default function Landing() {
       </div>
 
       {/* Down Arrow */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-2xl animate-bounce z-10">
-        ↓
-      </div>
+<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 py-[80px]">
+  <div className="bg-white rounded-[15px] w-[32px] h-[48px] flex items-center justify-center shadow-md animate-bounce ">
+    <span className="text-black text-xl">↓</span>
+  </div>
+</div>
+
         </section>
     )
 }
