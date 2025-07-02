@@ -1,3 +1,4 @@
+import CustomCursor from "./components/CustomCursor";
 import "./globals.css";
 import { JetBrains_Mono, Poppins } from "next/font/google";
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${poppins.className}`}>
+        <CustomCursor />
         {children}
       </body>
     </html>

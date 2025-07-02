@@ -2,9 +2,10 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import CustomCursor from "./CustomCursor"
 
-const leftImages = ['/left1.png']
-const rightImages = ['/right1.png']
+const leftImages = ['/images-left/left1.png', '/images-left/left2.png', '/images-left/left3.png', '/images-left/left4.png']
+const rightImages = ['/images-right/right1.png', '/images-right/right2.png', '/images-right/right3.png']
 
 export default function Landing() {
     const [leftIndex, setLeftIndex] = useState(0);
@@ -14,18 +15,18 @@ export default function Landing() {
         const interval = setInterval(() => {
             setLeftIndex((prev) => (prev + 1) % leftImages.length);
             setRightIndex((prev) => (prev + 1) % rightImages.length);
-        }, 4000);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <section className="h-screen w-full flex relative overflow-hidden">
+        <section id="hero" className="h-screen w-full flex relative overflow-hidden">
             {/* Left side */}
             <div className="w-1/2 h-full relative">
                 {leftImages.map((src, i) => (
                     <Image
-                        key={src}
+                        key={i}
                         src={src}
                         alt="Left Slide"
                         fill
@@ -49,6 +50,8 @@ export default function Landing() {
           />
         ))}
       </div>
+      
+      <CustomCursor />
 
       {/* Down Arrow */}
 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 py-[80px]">

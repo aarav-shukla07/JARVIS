@@ -2,10 +2,13 @@ import { jetbrainsMono, poppins } from "@/lib/fonts";
 
 export default function Navbar() {
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#003300]/50 to-[#001133]/50 backdrop-blur-md text-black">
+        <header
+            id="navbar"
+            className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#003300]/50 to-[#001133]/50 backdrop-blur-md text-black"
+            >
             <div className="flex items-center justify-between pl-[100px] pr-[100px]">
                 <div className="text-[18px] md:text-[18px] display font-normal text-lg leading-[1.2] max-w-[40px] py-[21px] transition-all duration-300 hover:-translate-y-1.5">
-                    <span className={`${jetbrainsMono.className}`} style={{ letterSpacing: "-0.02em"}}><a href="/">JARVIS</a></span>
+                    <span className={`${jetbrainsMono.className}`} style={{ letterSpacing: "-0.02em" }}><a href="/">JARVIS</a></span>
                 </div>
 
 
