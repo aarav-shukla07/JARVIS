@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import JarvisSection from './JarvisSection';
 
 const leftImages = [
   '/images-left/left1.png',
@@ -48,8 +49,8 @@ export default function Landing() {
   const leftSlide = `translateX(-${scrollProgress * 100}%)`;
   const rightSlide = `translateX(${scrollProgress * 100}%)`;
   const jarvisTranslateY = 40 - scrollProgress * 40; // From 40% to 0%
-  const jarvisVisible = scrollProgress > 0.8;
-  const jarvisOpacity = scrollProgress;
+  const jarvisVisible = scrollProgress > 0.9;
+  const jarvisOpacity = Math.min(scrollProgress / 0.9, 1);
 
   return (
     <section ref={sectionRef} className="relative h-[200vh] w-full">
@@ -66,9 +67,8 @@ export default function Landing() {
               src={src}
               alt="Left Slide"
               fill
-              className={`object-cover transition-opacity duration-1000 ${
-                i === leftIndex ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`object-cover transition-opacity duration-1000 ${i === leftIndex ? 'opacity-100' : 'opacity-0'
+                }`}
             />
           ))}
         </div>
@@ -84,33 +84,38 @@ export default function Landing() {
               src={src}
               alt="Right Slide"
               fill
-              className={`object-cover transition-opacity duration-1000 ${
-                i === rightIndex ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`object-cover transition-opacity duration-1000 ${i === rightIndex ? 'opacity-100' : 'opacity-0'
+                }`}
             />
           ))}
         </div>
 
         {/* JARVIS reveal — inside sticky area */}
         <div
-          className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center transition-opacity duration-300 ${
-    jarvisVisible ? "opacity-100" : "opacity-0"
-  }`}
-  style={{
-    transform: `translateY(${jarvisTranslateY}%)`,
-    backgroundColor: 'white',
-  }}
+          id='jarvis'
+          className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center transition-opacity duration-300 ${jarvisVisible ? "opacity-100" : "opacity-0"
+            }`}
+          style={{
+            transform: `translateY(${jarvisTranslateY}%)`,
+            backgroundColor: 'white',
+          }}
         >
-          <h1 className="text-black text-5xl md:text-7xl font-bold font-mono">
+          {/* <h1
+            className="text-5xl md:text-7xl font-bold font-mono transition-colors duration-300"
+            style={{
+              color: `rgba(10, 20, 60, ${jarvisOpacity})`,
+            }}
+          >
             JARVIS
-          </h1>
+          </h1> */}
+            <JarvisSection />
+
         </div>
 
         {/* Down Arrow */}
         <div
-          className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 transition-opacity duration-300 ${
-            scrollProgress > 0 ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={`absolute bottom-[80px] left-1/2 transform -translate-x-1/2 z-10 transition-opacity duration-300 ${scrollProgress > 0 ? 'opacity-0' : 'opacity-100'
+            }`}
         >
           <div className="bg-white rounded-[15px] w-[32px] h-[48px] flex items-center justify-center shadow-md animate-bounce">
             <span className="text-black text-xl">↓</span>
