@@ -2,16 +2,17 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import CustomCursor from "./components/CustomCursor";
+import OverlayNext from "./components/About"; // 👈 import this
 
 export default function Home() {
   return (
     <div>
       <Navbar />
       <div id="hero">
-        <Landing />
+        <Landing /> {/* This includes your image sliders and JarvisSection */}
       </div>
 
-      
+      <OverlayNext /> {/* 👈 This overlays NEXT SECTION over Jarvis */}
 
       <CustomCursor />
     </div>

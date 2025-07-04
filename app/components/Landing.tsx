@@ -100,14 +100,7 @@ export default function Landing() {
             backgroundColor: 'white',
           }}
         >
-          {/* <h1
-            className="text-5xl md:text-7xl font-bold font-mono transition-colors duration-300"
-            style={{
-              color: `rgba(10, 20, 60, ${jarvisOpacity})`,
-            }}
-          >
-            JARVIS
-          </h1> */}
+          
             <JarvisSection />
 
         </div>
