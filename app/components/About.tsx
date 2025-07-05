@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import AboutTextContent from './AboutTextContent'; // ⬅️ Import the content component
+import FutureWorks from './FutureWorks';
 
 export default function OverlayNext() {
   const [scrollY, setScrollY] = useState(0);
@@ -32,6 +33,7 @@ export default function OverlayNext() {
         }}
       >
         <AboutTextContent />
+        <FutureWorks />
       </div>
     </div>
   );
