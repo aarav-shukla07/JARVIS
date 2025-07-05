@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import CustomCursor from "./components/CustomCursor";
 import OverlayNext from "./components/About"; // 👈 import this
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <OverlayNext /> {/* 👈 This overlays NEXT SECTION over Jarvis */}
 
       <CustomCursor />
+      <Footer />
     </div>
   );
 }

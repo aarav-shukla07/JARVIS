@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import AboutTextContent from './AboutTextContent'; // ⬅️ Import the content component
 
 export default function OverlayNext() {
   const [scrollY, setScrollY] = useState(0);
@@ -14,25 +15,23 @@ export default function OverlayNext() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Set trigger height after full Jarvis scroll — same as Landing height (e.g., 200vh)
   const triggerHeight = 1.2 * window.innerHeight;
+
+  const translateY = scrollY >= triggerHeight
+    ? 0
+    : 100 - (scrollY / triggerHeight) * 100;
 
   return (
     <div>
-      {/* Invisible trigger that pushes content below Landing */}
-      <div ref={triggerRef} style={{ height: triggerHeight }}></div>
+      <div ref={triggerRef} style={{ height: triggerHeight }} />
 
-      {/* Overlay section only starts after Jarvis is fully shown */}
       <div
-        className="fixed top-0 left-0 w-full z-30"
+        className="w-full min-h-screen bg-[#00052a] text-white transition-transform duration-500 ease-in-out"
         style={{
-          transform: scrollY >= triggerHeight ? 'translateY(0)' : 'translateY(100%)',
-          transition: 'transform 0.6s ease',
+          transform: `translateY(${translateY}%)`,
         }}
       >
-        <div className="h-screen bg-[#00052a] text-white flex items-center justify-center text-4xl">
-          OVERLAY SECTION
-        </div>
+        <AboutTextContent />
       </div>
     </div>
   );
