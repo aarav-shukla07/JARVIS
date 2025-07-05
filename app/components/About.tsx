@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import AboutTextContent from './AboutTextContent'; // ⬅️ Import the content component
 import FutureWorks from './FutureWorks';
 import Domains from './Domains';
+import Join from './Join';
 
 export default function OverlayNext() {
   const [scrollY, setScrollY] = useState(0);
@@ -36,6 +37,7 @@ export default function OverlayNext() {
         <AboutTextContent />
         <FutureWorks />
         <Domains />
+        <Join />
       </div>
     </div>
   );
