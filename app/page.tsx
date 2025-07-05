@@ -16,7 +16,7 @@ export default function Home() {
       <OverlayNext /> {/* 👈 This overlays NEXT SECTION over Jarvis */}
 
       <CustomCursor />
-      <Footer />
+      
     </div>
   );
 }

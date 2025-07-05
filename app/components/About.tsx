@@ -5,6 +5,7 @@ import AboutTextContent from './AboutTextContent'; // ⬅️ Import the content 
 import FutureWorks from './FutureWorks';
 import Domains from './Domains';
 import Join from './Join';
+import Footer from './Footer';
 
 export default function OverlayNext() {
   const [scrollY, setScrollY] = useState(0);
@@ -38,6 +39,7 @@ export default function OverlayNext() {
         <FutureWorks />
         <Domains />
         <Join />
+        <Footer />
       </div>
     </div>
   );
