@@ -6,6 +6,7 @@ import FutureWorks from './FutureWorks';
 import Domains from './Domains';
 import Join from './Join';
 import Footer from './Footer';
+import PostJarvisCursor from './PostJarvisCursor';
 
 export default function OverlayNext() {
   const [scrollY, setScrollY] = useState(0);

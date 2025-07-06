@@ -30,7 +30,7 @@ export default function ScrollingGallery() {
     const speed = 0.8;
     const animate = () => {
       offset += speed; // move LEFT ➜ RIGHT
-      if (offset >= strip.scrollWidth / 2) {
+      if (offset >= strip.scrollWidth / 5) {
         offset = 0;
       }
       strip.style.transform = `translateX(${offset}px)`;

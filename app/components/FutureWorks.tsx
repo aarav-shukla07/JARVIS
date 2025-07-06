@@ -1,27 +1,33 @@
 'use client';
 
 import Image from 'next/image';
-import { JetBrains_Mono } from 'next/font/google';
+import { useState } from 'react';
 
 export default function FutureWorks() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const projects = [
     {
       src: '/future/future1.png',
+      hoverSrc: '/future/future1-hover.png',
       title: 'VR BASED PHOBIA THERAPY',
       subtitle: 'VR + PSYCHOLOGY',
     },
     {
       src: '/future/future2.png',
+      hoverSrc: '/future/future2-hover.png',
       title: 'CYBER INTRUSION PATTERN IDENTIFIER',
       subtitle: 'PROJECT',
     },
     {
       src: '/future/future3.png',
+      hoverSrc: '/future/future3-hover.png',
       title: 'DEEPFAKE DETECTION SUITE',
       subtitle: 'PROJECT',
     },
     {
       src: '/future/future4.png',
+      hoverSrc: '/future/future4-hover.png',
       title: 'AI- BASED NPC EMOTION ENGINE',
       subtitle: 'GAME DEV + AFFECTIVE COMPUTING',
     },
@@ -29,22 +35,28 @@ export default function FutureWorks() {
 
   return (
     <div className="bg-[#00052a] text-white w-full pt-2">
-      
-
-      {/* Heading */}
       <h2 className="text-center text-5xl font-bold tracking-widest py-12">FUTURE WORKS</h2>
 
-      {/* Image Grid (2x2) */}
       <div className="flex flex-wrap justify-center items-start gap-x-10 gap-y-12 px-4">
         {projects.map((project, idx) => (
-          <div key={idx} className="flex flex-col items-start max-w-[600px]">
-            <div className="w-[600px] h-[600px] overflow-hidden">
+          <div
+            key={idx}
+            className="flex flex-col items-start max-w-[600px]"
+          >
+            <div
+              className="w-[600px] h-[600px] overflow-hidden"
+              style={{
+                cursor: `url('/cursors/eye-cursor.png') 24 24, auto`,
+              }}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
               <Image
-                src={project.src}
+                src={hoveredIndex === idx ? project.hoverSrc : project.src}
                 alt={project.title}
                 width={600}
                 height={600}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-300"
               />
             </div>
             <h3 className="text-2xl font-semibold mt-4">{project.title}</h3>
@@ -53,9 +65,9 @@ export default function FutureWorks() {
         ))}
       </div>
 
-      <div className="relative group hidden md:block py-[40px] px-170">
+      <div className="relative group hidden md:flex justify-center py-[20px] mt-6">
           <a
-            href="#works"
+            href="#join"
             className="pl-[24px] pr-[22px] py-[8px] h-[44px] font-normal inline-flex items-center justify-center relative
                text-white bg-transparent rounded-full 
                transition-[background,color,transform] duration-500 ease-in-out
@@ -75,9 +87,7 @@ export default function FutureWorks() {
         </div>
 
       {/* Bottom horizontal line */}
-      <div className="w-full h-[2px] bg-white mt-16" />
-
-      
+      <div className="w-full h-[2px] bg-white mt-30" />
     </div>
   );
 }

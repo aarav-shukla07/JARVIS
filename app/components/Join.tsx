@@ -2,6 +2,7 @@
 
 import { JetBrains_Mono } from 'next/font/google';
 import ScrollingGallery from './ScrollingGallery';
+import HoverImages from './HoverImage';
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -11,8 +12,14 @@ const jetbrainsMono = JetBrains_Mono({
 export default function Join() {
   return (
     <div className={`w-full bg-[#00052a] text-white flex flex-col items-center justify-center py-28 px-4 ${jetbrainsMono.className}`}>
-      {/* JARVIS Title */}
-      <h1 className="text-9xl font-bold tracking-widest text-white">JARVIS</h1>
+
+      <div className="relative w-full">
+  <HoverImages />
+  <h1 id="jarvis-hover" className="text-9xl font-bold tracking-widest text-white text-center z-10 relative">
+    JARVIS
+  </h1>
+</div>
+
 
       {/* Tagline */}
       <div className="mt-46 text-center leading-tight">

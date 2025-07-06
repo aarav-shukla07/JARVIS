@@ -1,4 +1,5 @@
 import CustomCursor from "./components/CustomCursor";
+import PostJarvisCursor from "./components/PostJarvisCursor";
 import "./globals.css";
 import { JetBrains_Mono, Poppins } from "next/font/google";
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${poppins.className}`}>
         <CustomCursor />
+        <PostJarvisCursor />
         {children}
       </body>
     </html>
