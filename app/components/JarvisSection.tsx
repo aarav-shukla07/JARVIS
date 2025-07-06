@@ -10,7 +10,6 @@ export default function JarvisSection() {
     const [scrollY, setScrollY] = useState(0);
     const [opacity, setOpacity] = useState(0);
 
-    // Track scroll to animate opacity and text color
     useEffect(() => {
         const handleScroll = () => {
             const rect = sectionRef.current?.getBoundingClientRect();
@@ -28,7 +27,6 @@ export default function JarvisSection() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Interpolate between light and dark navy
     const interpolateColor = (start: string, end: string, t: number) => {
         const s = parseInt(start.slice(1), 16);
         const e = parseInt(end.slice(1), 16);
@@ -48,13 +46,12 @@ export default function JarvisSection() {
         return `rgb(${r}, ${g}, ${b})`;
     };
 
-    const jarvisColor = interpolateColor('#ccccdd', '#00052a', scrollY); // from light gray-blue to dark navy
+    const jarvisColor = interpolateColor('#ccccdd', '#00052a', scrollY);
 
-    // Animate bottom icons infinitely from left to right
     useEffect(() => {
         let animationFrame: number;
-        const speed = 1.5; // px per frame
-        const spacing = 64 + 40; // icon size + gap
+        const speed = 1.5;
+        const spacing = 64 + 40;
 
         const animate = () => {
             iconRefs.current.forEach((icon) => {
@@ -88,24 +85,17 @@ export default function JarvisSection() {
     return (
         <div
             ref={sectionRef}
-            className="relative w-full min-h-screen flex flex-col items-center justify-center"
+            className="relative w-full min-h-screen flex flex-col items-center justify-center px-4"
             style={{ opacity, transition: 'opacity 0.3s ease-in-out' }}
         >
-
             {/* JARVIS Text */}
             <h1
-                className={`${jetbrainsMono.className} font-bold`}
+                className={`${jetbrainsMono.className} font-bold text-center leading-[1.1] tracking-tighter`}
                 style={{
-                    width: '1200px',
-                    height: '198px',
-                    fontSize: '180px',
-                    lineHeight: '1.1',
-                    letterSpacing: '-0.04em',
+                    fontSize: scrollY < 0.5 ? '80px' : 'clamp(60px, 12vw, 180px)',
+                    transform: `scale(${0.9 + scrollY * 0.1})`,
                     color: jarvisColor,
                     transition: 'transform 0.3s ease, color 0.3s ease',
-                    transform: `scale(${0.9 + scrollY * 0.1})`,
-                    marginTop: '2px',
-                    textAlign: 'center',
                 }}
             >
                 JARVIS
@@ -113,40 +103,24 @@ export default function JarvisSection() {
 
             {/* Side Texts */}
             <div
-                style={{
-                    marginTop: '20px',
-                    paddingLeft: '190px',
-                    paddingRight: '190px',
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    fontFamily: 'JetBrains Mono, monospace',
-                    color: '#07082E',
-                    fontSize: '18px',
-                    lineHeight: '1.4',
-                    letterSpacing: '0.02em',
-                    textTransform: 'uppercase',
-                }}
+                className="mt-6 w-full px-4 md:px-[190px] flex flex-col md:flex-row justify-between gap-6 text-center md:text-left text-[#07082E] text-sm md:text-[18px] tracking-wide uppercase font-mono"
             >
-                <div style={{ textAlign: 'left' }}>
+                <div>
                     <p>TECH SOCIETY</p>
                     <p>IIT'M</p>
                 </div>
-                <div style={{ textAlign: 'right' }}>
+                <div className="md:text-right">
                     <p>JOINT AI, RESEARCH, VIRTUAL NETWORKS</p>
                     <p>IOT & ELECTRONICS</p>
                 </div>
             </div>
 
             {/* Bottom Icons */}
-            {/* Bottom Icons */}
             <div className="absolute bottom-[5vh] w-full flex justify-center">
-                {/* Faded edges */}
-                <div className="absolute w-[600px] h-full z-10 pointer-events-none bg-gradient-to-r from-white via-transparent to-white" />
-
+                <div className="absolute w-[90%] sm:w-[600px] h-full z-10 pointer-events-none bg-gradient-to-r from-white via-transparent to-white" />
                 <div
                     ref={iconContainerRef}
-                    className="relative w-[600px] h-10 bg-white overflow-hidden"
+                    className="relative w-[90%] sm:w-[600px] h-10 bg-white overflow-hidden"
                 >
                     {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
                         <img
@@ -161,7 +135,6 @@ export default function JarvisSection() {
                     ))}
                 </div>
             </div>
-
         </div>
     );
 }

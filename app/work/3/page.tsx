@@ -56,10 +56,10 @@ export default function VRPhobiaTherapyPage() {
             {/* Image Grid */}
             <div className="flex flex-col md:flex-row gap-8 px-6 md:px-20">
                 <div className="relative w-full md:w-1/2 h-[400px] md:h-[400px] rounded-xl overflow-hidden">
-                    <Image src="/future/future3.png" alt="Phobia Image 1" fill className="object-cover" />
+                    <Image src="/future/future3.avif" alt="Phobia Image 1" fill className="object-cover" />
                 </div>
                 <div className="relative w-full md:w-1/2 h-[400px] md:h-[400px] rounded-xl overflow-hidden">
-                    <Image src="/future/future3-hover.png" alt="Phobia Image 2" fill className="object-cover" />
+                    <Image src="/future/future3-hover.avif" alt="Phobia Image 2" fill className="object-cover" />
                 </div>
             </div>
 
@@ -110,7 +110,7 @@ export default function VRPhobiaTherapyPage() {
                     <Link href="/work/2">
                         <div className="inline-block text-center hover:scale-105 transition-transform duration-300">
                             <div className="relative w-[150px] h-[90px] mx-auto mb-3 rounded overflow-hidden">
-                                <Image src="/future/future2.png" alt="Cyber Intrusion" fill className="object-cover" />
+                                <Image src="/future/future2.avif" alt="Cyber Intrusion" fill className="object-cover" />
                             </div>
                             <p className="font-mono text-sm tracking-wide">CYBER INTRUSION PATTERN IDENTIFIER</p>
                         </div>

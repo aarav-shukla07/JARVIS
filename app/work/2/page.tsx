@@ -56,10 +56,10 @@ export default function VRPhobiaTherapyPage() {
       {/* Image Grid */}
       <div className="flex flex-col md:flex-row gap-8 px-6 md:px-20">
         <div className="relative w-full md:w-1/2 h-[400px] md:h-[400px] rounded-xl overflow-hidden">
-          <Image src="/future/future2.png" alt="Phobia Image 1" fill className="object-cover" />
+          <Image src="/future/future2.avif" alt="Phobia Image 1" fill className="object-cover" />
         </div>
         <div className="relative w-full md:w-1/2 h-[400px] md:h-[400px] rounded-xl overflow-hidden">
-          <Image src="/future/future2-hover.png" alt="Phobia Image 2" fill className="object-cover" />
+          <Image src="/future/future2-hover.avif" alt="Phobia Image 2" fill className="object-cover" />
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export default function VRPhobiaTherapyPage() {
           <Image src="/hover/image2.png" alt="Extra Image 2" fill className="object-cover" />
         </div>
         <div className="relative w-full h-[800px] rounded-lg overflow-hidden md:col-span-2">
-          <Image src="/future/future2.png" alt="Extra Image 3" fill className="object-cover" />
+          <Image src="/future/future2.avif" alt="Extra Image 3" fill className="object-cover" />
         </div>
       </div>
 

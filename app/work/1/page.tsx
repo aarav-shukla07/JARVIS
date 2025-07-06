@@ -114,7 +114,7 @@ export default function VRPhobiaTherapyPage() {
         <Link href="/work/2">
           <div className="inline-block text-center hover:scale-105 transition-transform duration-300">
             <div className="relative w-[150px] h-[90px] mx-auto mb-3 rounded overflow-hidden">
-              <Image src="/future/future2.png" alt="Cyber Intrusion" fill className="object-cover" />
+              <Image src="/future/future2.avif" alt="Cyber Intrusion" fill className="object-cover" />
             </div>
             <p className="font-mono text-sm tracking-wide">CYBER INTRUSION PATTERN IDENTIFIER</p>
           </div>

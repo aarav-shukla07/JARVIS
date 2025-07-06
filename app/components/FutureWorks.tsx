@@ -15,14 +15,14 @@ export default function FutureWorks() {
       subtitle: 'VR + PSYCHOLOGY',
     },
     {
-      src: '/future/future2.png',
-      hoverSrc: '/future/future2-hover.png',
+      src: '/future/future2.avif',
+      hoverSrc: '/future/future2-hover.avif',
       title: 'CYBER INTRUSION PATTERN IDENTIFIER',
       subtitle: 'PROJECT',
     },
     {
-      src: '/future/future3.png',
-      hoverSrc: '/future/future3-hover.png',
+      src: '/future/future3.avif',
+      hoverSrc: '/future/future3-hover.avif',
       title: 'DEEPFAKE DETECTION SUITE',
       subtitle: 'PROJECT',
     },
@@ -36,17 +36,20 @@ export default function FutureWorks() {
 
   return (
     <div className="bg-[#00052a] text-white w-full pt-2">
-      <h2 className="text-center text-5xl font-bold tracking-widest py-12">FUTURE WORKS</h2>
+      <h2 className="text-center text-5xl font-bold tracking-widest py-12">
+        FUTURE WORKS
+      </h2>
 
+      {/* Cards container */}
       <div className="flex flex-wrap justify-center items-start gap-x-10 gap-y-12 px-4">
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-start max-w-[600px]"
+            className="flex flex-col items-start w-full sm:w-[90%] md:w-[600px] max-w-full"
           >
-            <Link href={`/work/${idx +1}`} passHref>
+            <Link href={`/work/${idx + 1}`} passHref>
               <div
-                className="w-[600px] h-[600px] overflow-hidden"
+                className="w-full aspect-square overflow-hidden"
                 style={{
                   cursor: `url('/cursors/eye-cursor.png') 24 24, auto`,
                 }}
@@ -63,19 +66,22 @@ export default function FutureWorks() {
               </div>
             </Link>
             <h3 className="text-2xl font-semibold mt-4">{project.title}</h3>
-            <p className="text-sm text-[#bfbfbf] tracking-wider">{project.subtitle}</p>
+            <p className="text-sm text-[#bfbfbf] tracking-wider">
+              {project.subtitle}
+            </p>
           </div>
         ))}
       </div>
 
+      {/* More Works Button */}
       <div className="relative group hidden md:flex justify-center py-[20px] mt-6">
         <a
           href="/work"
           className="pl-[24px] pr-[22px] py-[8px] h-[44px] font-normal inline-flex items-center justify-center relative
-            text-white bg-transparent rounded-full 
-            transition-[background,color,transform] duration-500 ease-in-out
-            group-hover:bg-white group-hover:text-black
-            [transition-property:background,color,transform,border-radius] [transition-duration:60ms] group-hover:rounded-md"
+               text-white bg-transparent rounded-full 
+               transition-[background,color,transform] duration-500 ease-in-out
+               group-hover:bg-white group-hover:text-black
+               [transition-property:background,color,transform,border-radius] [transition-duration:60ms] group-hover:rounded-md"
         >
           <span className="relative flex items-center gap-[2px]">
             <span className="transition-transform duration-500 ease-in-out group-hover:-translate-x-1">

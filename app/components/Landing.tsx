@@ -27,7 +27,6 @@ export default function Landing() {
       setLeftIndex((prev) => (prev + 1) % leftImages.length);
       setRightIndex((prev) => (prev + 1) % rightImages.length);
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -46,20 +45,22 @@ export default function Landing() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const leftSlide = `translateX(-${scrollProgress * 100}%)`;
-  const rightSlide = `translateX(${scrollProgress * 100}%)`;
-  const jarvisTranslateY = 40 - scrollProgress * 40; // From 40% to 0%
+  const leftSlide = `translateX(-${scrollProgress * 50}%)`;
+  const rightSlide = `translateX(${scrollProgress * 50}%)`;
+  const jarvisTranslateY = 40 - scrollProgress * 40;
   const jarvisVisible = scrollProgress > 0.9;
   const jarvisOpacity = Math.min(scrollProgress / 0.9, 1);
 
   return (
-    <section ref={sectionRef} className="relative h-[200vh] w-full">
-      {/* Sticky container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex bg-white">
-        {/* Left Image */}
+    <section ref={sectionRef} className="relative h-[200vh] w-full bg-white">
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Left Image (Top on mobile) */}
         <div
-          className="w-1/2 h-full relative"
-          style={{ transform: leftSlide, transition: 'transform 0.1s linear' }}
+          className="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full"
+          style={{
+            transform: leftSlide,
+            transition: 'transform 0.2s linear',
+          }}
         >
           {leftImages.map((src, i) => (
             <Image
@@ -67,16 +68,20 @@ export default function Landing() {
               src={src}
               alt="Left Slide"
               fill
-              className={`object-cover transition-opacity duration-1000 ${i === leftIndex ? 'opacity-100' : 'opacity-0'
-                }`}
+              className={`object-cover transition-opacity duration-1000 ${
+                i === leftIndex ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           ))}
         </div>
 
-        {/* Right Image */}
+        {/* Right Image (Bottom on mobile) */}
         <div
-          className="w-1/2 h-full relative"
-          style={{ transform: rightSlide, transition: 'transform 0.1s linear' }}
+          className="absolute bottom-0 right-0 w-full md:w-1/2 h-1/2 md:h-full"
+          style={{
+            transform: rightSlide,
+            transition: 'transform 0.2s linear',
+          }}
         >
           {rightImages.map((src, i) => (
             <Image
@@ -84,31 +89,33 @@ export default function Landing() {
               src={src}
               alt="Right Slide"
               fill
-              className={`object-cover transition-opacity duration-1000 ${i === rightIndex ? 'opacity-100' : 'opacity-0'
-                }`}
+              className={`object-cover transition-opacity duration-1000 ${
+                i === rightIndex ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           ))}
         </div>
 
-        {/* JARVIS reveal — inside sticky area */}
+        {/* Jarvis Reveal */}
         <div
-          id='jarvis'
-          className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center transition-opacity duration-300 ${jarvisVisible ? "opacity-100" : "opacity-0"
-            }`}
+          id="jarvis"
+          className={`absolute top-0 left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 ${
+            jarvisVisible ? 'opacity-100' : 'opacity-0'
+          }`}
           style={{
             transform: `translateY(${jarvisTranslateY}%)`,
             backgroundColor: 'white',
+            zIndex: 10,
           }}
         >
-          
-            <JarvisSection />
-
+          <JarvisSection />
         </div>
 
-        {/* Down Arrow */}
+        {/* Scroll Button - Always centered */}
         <div
-          className={`absolute bottom-[80px] left-1/2 transform -translate-x-1/2 z-10 transition-opacity duration-300 ${scrollProgress > 0 ? 'opacity-0' : 'opacity-100'
-            }`}
+          className={`absolute bottom-[80px] w-full flex justify-center z-20 transition-opacity duration-300 ${
+            scrollProgress > 0 ? 'opacity-0' : 'opacity-100'
+          }`}
         >
           <div className="bg-white rounded-[15px] w-[32px] h-[48px] flex items-center justify-center shadow-md animate-bounce">
             <span className="text-black text-xl">↓</span>
