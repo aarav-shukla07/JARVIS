@@ -5,7 +5,6 @@ import AboutTextContent from './AboutTextContent'; // ⬅️ Import the content 
 import FutureWorks from './FutureWorks';
 import Domains from './Domains';
 import Join from './Join';
-import Footer from './Footer';
 import PostJarvisCursor from './PostJarvisCursor';
 
 export default function OverlayNext() {
@@ -20,7 +19,7 @@ export default function OverlayNext() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const triggerHeight = 1.2 * window.innerHeight;
+  const triggerHeight = 0.2 * window.innerHeight;
 
   const translateY = scrollY >= triggerHeight
     ? 0
@@ -40,7 +39,6 @@ export default function OverlayNext() {
         <FutureWorks />
         <Domains />
         <Join />
-        <Footer />
       </div>
     </div>
   );

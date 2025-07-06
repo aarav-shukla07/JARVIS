@@ -17,7 +17,7 @@ export default function AboutTextContent() {
         <br /><br />
         <div className="relative group hidden md:block py-[10px] ml-4">
           <a
-            href="#about"
+            href="/about"
             className="pl-[24px] pr-[22px] py-[8px] h-[44px] font-normal inline-flex items-center justify-center relative
               text-yellow bg-transparent rounded-full 
               transition-[background,color,transform] duration-500 ease-in-out

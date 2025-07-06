@@ -38,10 +38,10 @@ export default function Navbar() {
         <nav
           className={`${poppins.className} hidden md:flex space-x-[40px] font-medium py-[18px] pl-[45px]`}
         >
-          {["Works", "About", "Contact"].map((link) => (
+          {["Work", "About", "Contact"].map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={`/${link.toLowerCase()}`}
               className="hover:-translate-y-1.5 transition-transform duration-200"
             >
               {link}

@@ -88,9 +88,10 @@ export default function JarvisSection() {
     return (
         <div
             ref={sectionRef}
-            className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center"
+            className="relative w-full min-h-screen flex flex-col items-center justify-center"
             style={{ opacity, transition: 'opacity 0.3s ease-in-out' }}
         >
+
             {/* JARVIS Text */}
             <h1
                 className={`${jetbrainsMono.className} font-bold`}

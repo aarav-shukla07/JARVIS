@@ -71,9 +71,9 @@ export default function ScrollingGallery() {
         <div>
           <h3 className="text-xl font-normal text-gray-400 mb-4">ABOUT</h3>
           <ul className="space-y-2">
-            <li><Link href="#works" className="hover:text-[#fffec4] transition">Works</Link></li>
-            <li><Link href="#about" className="hover:text-[#fffec4] transition">About</Link></li>
-            <li><Link href="#contact" className="hover:text-[#fffec4] transition">Contact</Link></li>
+            <li><Link href="/work" className="hover:text-[#fffec4] transition">Works</Link></li>
+            <li><Link href="/about" className="hover:text-[#fffec4] transition">About</Link></li>
+            <li><Link href="/contact" className="hover:text-[#fffec4] transition">Contact</Link></li>
           </ul>
         </div>
 
