@@ -7,124 +7,74 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '700'],
 });
 
+const domainData = [
+  {
+    title: 'ELECTRONICS AND IOT',
+    columns: [
+      ['EMBEDDED SYSTEMS', 'WIRELESS COMMUNICATION', 'AUTOMATION AND CONTROL SYSTEMS'],
+      ['SENSOR NETWORKS', 'HARDWARE PROTOTYPING'],
+    ],
+  },
+  {
+    title: 'CYBER FORENSICS & BLOCKCHAIN',
+    columns: [
+      ['NETWORK FORENSICS', 'DIGITAL EVIDENCE RECOVERY', 'BLOCKCHAIN SECURITY & AUDITING'],
+      ['MALWARE ANALYSIS', 'SMART CONTRACT DEVELOPMENT', 'BLOCKCHAIN FORENSICS'],
+    ],
+  },
+  {
+    title: 'GAME DEVELOPMENT & DESIGNING',
+    columns: [
+      ['GAME ART & ANIMATION', 'SOUND DESIGN & MUSIC PRODUCTION', 'GAME STORYTELLING'],
+      ['LEVEL DESIGN', 'UI/UX DESIGN FOR GAMES', 'NARRATIVE DESIGN'],
+    ],
+  },
+  {
+    title: 'INFORMATICS',
+    columns: [
+      ['BIOINFORMATICS', 'USINESS INFORMATICS', 'EDUCATIONAL INFORMATICS'],
+      ['HEALTH INFORMATICS', 'DATA SCIENCE & ANALYTICSGI INTEGRATION', 'ENVIRONMENTAL INFORMATICS'],
+    ],
+  },
+];
+
 export default function Domains() {
   return (
     <>
-    <div className={`bg-[#00052a] text-white w-full py-20 px-25 ${jetbrainsMono.className}`}>
-      {/* Heading */}
-      <h2 className="text-center text-7xl font-bold tracking-widest mb-19">OUR DOMAINS</h2>
+      <div className={`bg-[#00052a] text-white w-full px-10 ${jetbrainsMono.className}`}>
+        {/* Sticky OUR DOMAINS heading */}
+        <div className="h-[60vh] sticky top-0 z-0 flex items-center justify-center bg-[#00052a]">
+          <h2 className="text-center text-7xl font-bold tracking-widest">OUR DOMAINS</h2>
+        </div>
 
-      {/* Electronics and IoT Section */}
-      <div className="mb-20 border-t border-white pt-10">
-        <div className="flex gap-16 items-start">
-          {/* Left side: Main domain title */}
-          <h3 className="text-4xl font-bold tracking-widest whitespace-nowrap min-w-[300px]">
-            ELECTRONICS AND IOT
-          </h3>
+        {/* Scrollable Sections */}
+        {domainData.map((domain, index) => (
+          <div
+            key={index}
+            className="h-[50vh] sticky top-0 z-0 flex flex-col justify-center bg-[#00052a] border-t border-white"
+          >
+            <div className="flex gap-24 items-start px-10">
+              {/* Domain title */}
+              <h3 className="text-4xl font-bold tracking-widest whitespace-nowrap min-w-[300px]">
+                {domain.title}
+              </h3>
 
-          {/* Right side: Two columns */}
-          <div className="flex gap-16">
-            {/* First Column */}
-            <div className="flex flex-col gap-2">
-              <p>EMBEDDED SYSTEMS</p>
-              <p>WIRELESS COMMUNICATION</p>
-              <p>AUTOMATION AND CONTROL SYSTEMS</p>
-            </div>
-
-            {/* Second Column */}
-            <div className="flex flex-col gap-2">
-              <p>SENSOR NETWORKS</p>
-              <p>HARDWARE PROTOTYPING</p>
+              {/* Right Columns */}
+              <div className="flex gap-16">
+                {domain.columns.map((col, colIndex) => (
+                  <div key={colIndex} className="flex flex-col gap-2">
+                    {col.map((item, itemIdx) => (
+                      <p key={itemIdx}>{item}</p>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
 
-      {/* Cyber Forensics & blockchain */}
-      <div className="mb-20 border-t border-white pt-10">
-        <div className="flex gap-29 items-start">
-          {/* Left side: Main domain title */}
-          <h3 className="text-4xl font-bold tracking-widest whitespace-nowrap min-w-[300px]">
-            CYBER FORENSICS & <br></br>BLOCKCHAIN
-          </h3>
-
-          {/* Right side: Two columns */}
-          <div className="flex gap-16">
-            {/* First Column */}
-            <div className="flex flex-col gap-2">
-              <p>NETWORK FORENSICS</p>
-              <p>DIGITAL EVIDENCE RECOVERY</p>
-              <p>BLOCKCHAIN SECURITY & AUDITING</p>
-            </div>
-
-            {/* Second Column */}
-            <div className="flex flex-col gap-2">
-              <p>MALWARE ANALYSIS</p>
-              <p>SMART CONTRACT DEVELOPMENT</p>
-              <p>BLOCKCHAIN FORENSICS</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* GAME DEVELOPMENT & DESIGNING */}
-      <div className="mb-20 border-t border-white pt-10">
-        <div className="flex gap-24 items-start">
-          {/* Left side: Main domain title */}
-          <h3 className="text-4xl font-bold tracking-widest whitespace-nowrap min-w-[300px]">
-            GAME DEVELOPMENT & <br></br>DESIGNING
-          </h3>
-
-          {/* Right side: Two columns */}
-          <div className="flex gap-16">
-            {/* First Column */}
-            <div className="flex flex-col gap-2">
-              <p>GAME ART & ANIMATION</p>
-              <p>SOUND DESIGN & MUSIC PRODUCTION</p>
-              <p>GAME STORYTELLING</p>
-            </div>
-
-            {/* Second Column */}
-            <div className="flex flex-col gap-2">
-              <p>LEVEL DESIGN</p>
-              <p>UI/UX DESIGN FOR GAMES</p>
-              <p>NARRATIVE DESIGN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* INFORMATICS */}
-      <div className="mb-20 border-t border-white pt-10">
-        <div className="flex gap-65 items-start">
-          {/* Left side: Main domain title */}
-          <h3 className="text-4xl font-bold tracking-widest whitespace-nowrap min-w-[300px]">
-            INFORMATICS
-          </h3>
-
-          {/* Right side: Two columns */}
-          <div className="flex gap-16">
-            {/* First Column */}
-            <div className="flex flex-col gap-2">
-              <p>BIOINFORMATICS</p>
-              <p>USINESS INFORMATICS</p>
-              <p>EDUCATIONAL INFORMATICS</p>
-            </div>
-
-            {/* Second Column */}
-            <div className="flex flex-col gap-2">
-              <p>HEALTH INFORMATICS</p>
-              <p>DATA SCIENCE & ANALYTICSGI INTEGRATION</p>
-              <p>ENVIRONMENTAL INFORMATICS</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-      
-    </div>
-    {/* Bottom horizontal line */}
+      {/* Bottom Line */}
       <div className="w-full h-[2px] bg-white mt-10" />
     </>
   );

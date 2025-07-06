@@ -1,0 +1,25 @@
+.domain-scroll-container {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.domain-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.sticky-domain {
+  position: sticky;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
